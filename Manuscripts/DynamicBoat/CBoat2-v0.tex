@@ -1,5 +1,5 @@
 \documentclass[aps, twocolumn, floatfix, superscriptaddress]{revtex4}
-\usepackage{amsmath, amssymb, amsfonts, gensymb}
+\usepackage{amsmath, amssymb, gensymb}
 \bibliographystyle{apsrev}
 \usepackage{graphicx}
 \graphicspath{ {Figures/} }
@@ -69,13 +69,15 @@ The motion of c-boat involves two processes. 1. At an instant position of the c-
 \end{figure}
 \section{Model for Dynamic C-boat}
 \begin{align}
-\pdc{}{t}c(x, t) &= \mathrm{D} \pdc[2]{}{x}c(x, t) - \tdc{x}{t} \pdc{}{x}c(x, t)  - \xi c(x, t) \\
-m\tdc[2]{x}{t} &= -\eta \tdc{x}{t} + \zeta \tdc{}{x}c(x,t) 
+\pdc{c}{t} - \mathrm{D} \nabla^{2}c &= - \vec{u} \cdot \vec{\nabla} c  - \xi c + \mathbb{S}\\
+\pdc{\vec{u}}{t} + \left(\vec{u} \cdot \vec{\nabla} \right)\vec{u} &= -\frac{1}{\rho}\vec{\nabla} p + \nu \nabla^{2}\vec{u}+ \vec{\mathbb{F}}
 \end{align}
-This is requiring hell lot of changes.
-VSA, DKS, SB and MMB were supported by the OIST Graduate University with subsidy funding from the Cabinet Office, Government of Japan. RKS was hosted by OIST Graduate University on a research internship while performing this work. MMB acknowledges L. Mahadevan for introducing the camphor boat system and subsequent scientific discussions, and D. Vu Anh for help with preliminary experiments.
-VSA, DKS, SB and MMB were supported by the OIST Graduate University with subsidy funding from the Cabinet Office, Government of Japan. RKS was hosted by OIST Graduate University on a research internship while performing this work. MMB acknowledges L. Mahadevan for introducing the camphor boat system and subsequent scientific discussions, and D. Vu Anh for help with preliminary experiments.
 
+where, $\mathbb{S} = c_{0}\delta\left(\vec{x}-\vec{u}(\vec{s}, t)\ t\right)$ is the source term and $\vec{\mathbb{F}} = \zeta \vec{\nabla}c$ is the force acting on an fluid element due to solutal Marangoni forces. In $1-\mathrm{D}$
+\begin{align}
+\pdc{c}{t} - \mathrm{D} \pdc[2]{c}{x} &= - u\pdc{c}{x}  - \xi c + c_{0}\delta\left(x-u(s, t)\ t\right)\\
+\pdc{u}{t} + u\pdc{u}{x} &= -\frac{1}{\rho}\pdc{p}{x} + \nu \pdc[2]{u}{x}+ \zeta \pdc{c}{x}
+\end{align}
 \section{Summary}
 \label{sec:summary}
 
